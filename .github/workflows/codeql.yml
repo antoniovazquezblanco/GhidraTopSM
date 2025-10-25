@@ -10,8 +10,8 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
-    runs-on: 'ubuntu-latest'
+    name: Analyze (${{ matrix.language }})
+    runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
     timeout-minutes: 360
     permissions:
       actions: read
@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language:
+        include:
         - language: actions
           build-mode: none
         - language: python
