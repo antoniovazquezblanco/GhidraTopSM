@@ -21,32 +21,44 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java-kotlin' ]
+        language:
+        - language: actions
+          build-mode: none
+        - language: python
+          build-mode: none
+        # TODO: Enable Java/Kotlin analysis after adding Java code
+        #- language: java-kotlin
+        #  build-mode: manual
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
 
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/init@v4
       with:
         languages: ${{ matrix.language }}
+        build-mode: ${{ matrix.build-mode }}
 
     - name: Install Java
+      if: matrix.language == 'java-kotlin'
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
         java-version: '21'
 
     - name: Install Gradle
+      if: matrix.language == 'java-kotlin'
       uses: gradle/actions/setup-gradle@v4
 
     - name: Install Ghidra
+      if: matrix.language == 'java-kotlin'
       uses: antoniovazquezblanco/setup-ghidra@v2.0.12
       with:
         auth_token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build
+      if: matrix.language == 'java-kotlin'
       run: gradle buildExtension -PGHIDRA_INSTALL_DIR=${{ env.GHIDRA_INSTALL_DIR }}
 
     - name: Perform CodeQL Analysis
