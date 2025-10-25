@@ -49,7 +49,7 @@ jobs:
 
     - name: Install Gradle
       if: matrix.language == 'java-kotlin'
-      uses: gradle/actions/setup-gradle@v4
+      uses: gradle/actions/setup-gradle@v5
 
     - name: Install Ghidra
       if: matrix.language == 'java-kotlin'
