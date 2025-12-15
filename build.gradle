@@ -50,6 +50,9 @@ task distributeExtension {
 }
 //----------------------END "DO NOT MODIFY" SECTION-------------------------------
 
+buildExtension.exclude '.github/'
+buildExtension.exclude 'README.md'
+
 repositories {
 	// Declare dependency repositories here.  This is not needed if dependencies are manually 
 	// dropped into the lib/ directory.
@@ -61,6 +64,3 @@ dependencies {
 	// Any external dependencies added here will automatically be copied to the lib/ directory when
 	// this extension is built.	
 }
-
-// Exclude additional files from the built extension
-// Ex: buildExtension.exclude '.idea/**'
