@@ -2,6 +2,7 @@
 
 [![Build](https://github.com/antoniovazquezblanco/GhidraTopSM/actions/workflows/main.yml/badge.svg)](https://github.com/antoniovazquezblanco/GhidraTopSM/actions/workflows/main.yml)
 [![CodeQL](https://github.com/antoniovazquezblanco/GhidraTopSM/actions/workflows/codeql.yml/badge.svg)](https://github.com/antoniovazquezblanco/GhidraTopSM/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/antoniovazquezblanco/GhidraTopSM/badge)](https://scorecard.dev/viewer/?uri=github.com/antoniovazquezblanco/GhidraTopSM)
 
 This repository contains the sources of a Ghidra plugin that enables reverse engineering of TopSM binaries.
 
